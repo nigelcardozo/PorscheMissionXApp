@@ -45,42 +45,33 @@ import com.elnimijogames.porschegarage.ui.theme.MainMenuScreenBackgroundColorGra
 import com.elnimijogames.porschegarage.ui.theme.MainMenuScreenBackgroundColorGradientStart
 import com.elnimijogames.porschegarage.ui.theme.PorscheGarageTheme
 
-val imageGalleryAssetPaths = listOf(
-    "file:///android_asset/images/profile_ellie.jpeg",
-    "file:///android_asset/images/profile_abby.jpg",
-    "file:///android_asset/images/profile_joel.jpg",
-    "file:///android_asset/images/profile_tommy.jpg",
-    "file:///android_asset/images/profile_deena.jpg",
-    "file:///android_asset/images/profile_marlene.jpg"
-)
-
 val imageGalleryPorscheCar = listOf(
-    "file:///android_asset/images/car/porsche1.jpg",
-    "file:///android_asset/images/car/porsche2.jpg",
-    "file:///android_asset/images/car/porsche3.jpg",
-    "file:///android_asset/images/car/porsche4.jpg",
-    "file:///android_asset/images/car/porsche5.jpg",
-    "file:///android_asset/images/car/porsche6.jpg",
-    "file:///android_asset/images/car/porsche7.jpg",
-    "file:///android_asset/images/car/porsche8.jpg",
-    "file:///android_asset/images/car/porsche9.jpg",
-    "file:///android_asset/images/car/porsche10.jpg",
-    "file:///android_asset/images/car/porsche11.jpg",
-    "file:///android_asset/images/car/porsche12.jpg",
-    "file:///android_asset/images/car/porsche13.jpg",
-    "file:///android_asset/images/car/porsche14.jpg",
-    "file:///android_asset/images/car/porsche15.jpg",
-    "file:///android_asset/images/car/porsche16.jpg",
-    "file:///android_asset/images/car/porsche17.jpg",
-    "file:///android_asset/images/car/porsche18.jpg",
-    "file:///android_asset/images/car/porsche19.jpg",
-    "file:///android_asset/images/car/porsche20.jpg",
-    "file:///android_asset/images/car/porsche21.jpg",
-    "file:///android_asset/images/car/porsche22.jpg",
-    "file:///android_asset/images/car/porsche23.jpg",
-    "file:///android_asset/images/car/porsche24.jpg",
-    "file:///android_asset/images/car/porsche25.jpg",
-    "file:///android_asset/images/car/porsche26.jpg"
+    "file:///android_asset/images/cars/porsche1.jpg",
+    "file:///android_asset/images/cars/porsche2.jpg",
+    "file:///android_asset/images/cars/porsche3.jpg",
+    "file:///android_asset/images/cars/porsche4.jpg",
+    "file:///android_asset/images/cars/porsche5.jpg",
+    "file:///android_asset/images/cars/porsche6.jpg",
+    "file:///android_asset/images/cars/porsche7.jpg",
+    "file:///android_asset/images/cars/porsche8.jpg",
+    "file:///android_asset/images/cars/porsche9.jpg",
+    "file:///android_asset/images/cars/porsche10.jpg",
+    "file:///android_asset/images/cars/porsche11.jpg",
+    "file:///android_asset/images/cars/porsche12.jpg",
+    "file:///android_asset/images/cars/porsche13.jpg",
+    "file:///android_asset/images/cars/porsche14.jpg",
+    "file:///android_asset/images/cars/porsche15.jpg",
+    "file:///android_asset/images/cars/porsche16.jpg",
+    "file:///android_asset/images/cars/porsche17.jpg",
+    "file:///android_asset/images/cars/porsche18.jpg",
+    "file:///android_asset/images/cars/porsche19.jpg",
+    "file:///android_asset/images/cars/porsche20.jpg",
+    "file:///android_asset/images/cars/porsche21.jpg",
+    "file:///android_asset/images/cars/porsche22.jpg",
+    "file:///android_asset/images/cars/porsche23.jpg",
+    "file:///android_asset/images/cars/porsche24.jpg",
+    "file:///android_asset/images/cars/porsche25.jpg",
+    "file:///android_asset/images/cars/porsche26.jpg"
 )
 
 @Composable
