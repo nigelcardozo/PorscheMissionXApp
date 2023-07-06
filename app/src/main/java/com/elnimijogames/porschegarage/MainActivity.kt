@@ -4,11 +4,13 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.elnimijogames.porschegarage.ui.detailsscreen.DetailsScreen
 import com.elnimijogames.porschegarage.ui.mainmenu.MainMenuScreen
+import com.elnimijogames.porschegarage.ui.mainmenu.MainMenuViewModel
 import com.elnimijogames.porschegarage.ui.splashscreen.SplashScreen
 import com.elnimijogames.porschegarage.ui.theme.PorscheGarageTheme
 
@@ -35,7 +37,9 @@ private fun PorscheGarageApp() {
             }
         }
         composable(route = "main_menu_screen") {
-            MainMenuScreen()
+            val viewModel: MainMenuViewModel = viewModel()
+            //MealDetailsScreen(viewModel.mealState.value)
+            MainMenuScreen(viewModel.photoGalleryState.value, viewModel.itemMenuState.value)
         }
         composable(route = "details_screen") {
             DetailsScreen()

@@ -33,39 +33,8 @@ import com.elnimijogames.porschegarage.ui.theme.MainMenuScreenBackgroundColorGra
 import com.elnimijogames.porschegarage.ui.theme.MainMenuScreenBackgroundColorGradientStart
 import com.elnimijogames.porschegarage.ui.theme.PorscheGarageTheme
 
-val imageGalleryPorscheCar = listOf(
-    "file:///android_asset/images/cars/porsche1.jpg",
-    "file:///android_asset/images/cars/porsche2.jpg",
-    "file:///android_asset/images/cars/porsche3.jpg",
-    "file:///android_asset/images/cars/porsche4.jpg",
-    "file:///android_asset/images/cars/porsche5.jpg",
-    "file:///android_asset/images/cars/porsche6.jpg",
-    "file:///android_asset/images/cars/porsche7.jpg",
-    "file:///android_asset/images/cars/porsche8.jpg",
-    "file:///android_asset/images/cars/porsche9.jpg",
-    "file:///android_asset/images/cars/porsche10.jpg",
-    "file:///android_asset/images/cars/porsche11.jpg",
-    "file:///android_asset/images/cars/porsche12.jpg",
-    "file:///android_asset/images/cars/porsche13.jpg",
-    "file:///android_asset/images/cars/porsche14.jpg",
-    "file:///android_asset/images/cars/porsche15.jpg",
-    "file:///android_asset/images/cars/porsche16.jpg",
-    "file:///android_asset/images/cars/porsche17.jpg",
-    "file:///android_asset/images/cars/porsche18.jpg",
-    "file:///android_asset/images/cars/porsche19.jpg",
-    "file:///android_asset/images/cars/porsche20.jpg",
-    "file:///android_asset/images/cars/porsche21.jpg",
-    "file:///android_asset/images/cars/porsche22.jpg",
-    "file:///android_asset/images/cars/porsche23.jpg",
-    "file:///android_asset/images/cars/porsche24.jpg",
-    "file:///android_asset/images/cars/porsche25.jpg",
-    "file:///android_asset/images/cars/porsche26.jpg"
-)
-
 @Composable
-fun MainMenuScreen() {
-    val menuItemList = MenuItemList()
-
+fun MainMenuScreen(imageGalleryPaths: List<String>, menuItemList: List<MenuItem>) {
     Column(
         modifier = Modifier
             .background(
@@ -77,8 +46,8 @@ fun MainMenuScreen() {
                 )
             )
     ) {
-        HorizontalImageGallery(assetPaths = imageGalleryPorscheCar)
-        VerticalGridButtons(menuItems = menuItemList.menuItemList)
+        HorizontalImageGallery(assetPaths = imageGalleryPaths)
+        VerticalGridButtons(menuItems = menuItemList)
     }
 }
 
@@ -195,6 +164,6 @@ fun MenuItem(menuItem: MenuItem) {
 @Composable
 fun GreetingPreview() {
     PorscheGarageTheme {
-        MainMenuScreen()
+        MainMenuScreen(listOf(), MenuItemList().menuItemList)
     }
 }
