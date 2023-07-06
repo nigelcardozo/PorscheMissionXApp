@@ -1,6 +1,6 @@
 package com.elnimijogames.porschegarage.model
 
-class MenuItemList {
+class MenuItemListLocal: MenuItemListInterface {
     val menuItemList = arrayListOf(
         MenuItem(
             imagePath = "file:///android_asset/images/menu/summary.png",
@@ -35,4 +35,8 @@ class MenuItemList {
             menuName = "About"
         )
     )
+
+    override fun getMenuItemsList(): List<MenuItem> {
+        return menuItemList
+    }
 }

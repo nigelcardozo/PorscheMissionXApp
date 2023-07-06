@@ -28,7 +28,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.elnimijogames.porschegarage.model.MenuItem
-import com.elnimijogames.porschegarage.model.MenuItemList
+import com.elnimijogames.porschegarage.model.MenuItemListLocal
 import com.elnimijogames.porschegarage.ui.theme.MainMenuScreenBackgroundColorGradientEnd
 import com.elnimijogames.porschegarage.ui.theme.MainMenuScreenBackgroundColorGradientStart
 import com.elnimijogames.porschegarage.ui.theme.PorscheGarageTheme
@@ -164,6 +164,6 @@ fun MenuItem(menuItem: MenuItem) {
 @Composable
 fun GreetingPreview() {
     PorscheGarageTheme {
-        MainMenuScreen(listOf(), MenuItemList().menuItemList)
+        MainMenuScreen(listOf(), MenuItemListLocal().menuItemList)
     }
 }
