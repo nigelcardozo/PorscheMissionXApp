@@ -20,3 +20,5 @@ val MainMenuScreenBackgroundColorGradientStart = Color(0xFFDBCCA2)
 val MainMenuScreenBackgroundColorGradientEnd = Color(0xFFC4A44D)
 
 val MainMenuMenuCardBackgroundColor = Color(0xFFEDE5CC)
+
+val StartButtonBackgroundColor = Color(0xFFB38222)

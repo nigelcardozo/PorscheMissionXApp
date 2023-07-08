@@ -1,81 +1,65 @@
 package com.elnimijogames.porschegarage.ui.splashscreen
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.text.ExperimentalTextApi
-import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.elnimijogames.porschegarage.ui.theme.MissionXTextGradientEnd
-import com.elnimijogames.porschegarage.ui.theme.MissionXTextGradientStart
 import com.elnimijogames.porschegarage.ui.theme.PorscheGarageTheme
-import com.elnimijogames.porschegarage.ui.theme.SplashScreenBackgroundColorGradientEnd
-import com.elnimijogames.porschegarage.ui.theme.SplashScreenBackgroundColorGradientStart
+import com.elnimijogames.porschegarage.ui.theme.StartButtonBackgroundColor
 
 @Composable
 fun SplashScreen(navigationCallback: () -> Unit) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Top,
+    Box(
         modifier = Modifier
-            .fillMaxSize()
-            .background(
-                brush = Brush.verticalGradient(
-                    colors = listOf(
-                        SplashScreenBackgroundColorGradientStart,
-                        SplashScreenBackgroundColorGradientEnd
-                    )
-                )
-            )
-            .padding(top = 100.dp)) {
-
-        PorscheLogo(navigationCallback)
-        MissionXText()
+            .fillMaxSize(),
+        contentAlignment = Alignment.BottomCenter
+    ) {
+        WallPaper()
+        StartButton(navigationCallback)
     }
 }
 
 @Composable
-fun PorscheLogo(navigationCallback: () -> Unit) {
-    AsyncImage(
-        model = "file:///android_asset/images/porsche_logo.png",
-        contentDescription = "Porsche Logo",
+fun StartButton(navigationCallback: () -> Unit) {
+    Button(
+        onClick = {
+            navigationCallback()
+        },
+        shape = RoundedCornerShape(4.dp),
+        colors = ButtonDefaults.buttonColors(
+            contentColor = Color.White,
+            containerColor = StartButtonBackgroundColor
+        ),
         modifier = Modifier
-            .size(300.dp)
-            .padding(4.dp)
-            .clickable { navigationCallback() }
-    )
+            .fillMaxWidth()
+            .padding(bottom = 100.dp, start = 20.dp, end = 20.dp)
+    ) {
+        Text(text = "Start")
+    }
 }
 
-@OptIn(ExperimentalTextApi::class)
 @Composable
-fun MissionXText() {
-    val gradientColors = listOf(MissionXTextGradientStart, MissionXTextGradientEnd)
-
-    Text(
-        text = "Mission X",
-        style = TextStyle(
-            fontStyle = MaterialTheme.typography.displayLarge.fontStyle,
-            fontFamily = MaterialTheme.typography.displayLarge.fontFamily,
-            fontWeight = MaterialTheme.typography.displayLarge.fontWeight,
-            fontSize = MaterialTheme.typography.displayLarge.fontSize,
-            lineHeight = MaterialTheme.typography.displayLarge.lineHeight,
-            letterSpacing = MaterialTheme.typography.displayLarge.letterSpacing,
-            brush = Brush.linearGradient(
-                colors = gradientColors
-            )
-        )
+fun WallPaper() {
+    AsyncImage(
+        model = "file:///android_asset/images/porsche_splash_screen.jpg",
+        contentDescription = "Porsche Wallpaper",
+        contentScale = ContentScale.FillHeight,
+        modifier = Modifier
+            .fillMaxSize()
+            .alpha(0.9f)
     )
 }
 
