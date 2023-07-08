@@ -1,11 +1,6 @@
 package com.elnimijogames.porschegarage.model
 
-import javax.inject.Inject
-import javax.inject.Singleton
-
-@Singleton
-//class MenuItemListLocal: MenuItemListInterface {
-class MenuItemListLocal @Inject constructor() {
+class MenuItemListLocal {
     val menuItemList = arrayListOf(
         MenuItem(
             imagePath = "file:///android_asset/images/menu/summary.png",

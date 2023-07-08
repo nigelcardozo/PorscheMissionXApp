@@ -1,5 +1,7 @@
 package com.elnimijogames.porschegarage.di
 
+import com.elnimijogames.porschegarage.model.MenuItemListLocal
+import com.elnimijogames.porschegarage.model.MenuItemRepository
 import com.elnimijogames.porschegarage.model.MenuPhotoGalleryRepository
 import dagger.Module
 import dagger.Provides
@@ -12,5 +14,15 @@ class AppModule {
     @Provides
     fun providesMenuPhotoGalleryRepository(): MenuPhotoGalleryRepository {
         return MenuPhotoGalleryRepository()
+    }
+
+    @Provides
+    fun providesMenuItemListLocal(): MenuItemListLocal {
+        return MenuItemListLocal()
+    }
+
+    @Provides
+    fun providesMenuItemRepository(menuItemListLocal: MenuItemListLocal): MenuItemRepository {
+        return MenuItemRepository(menuItemListLocal)
     }
 }
