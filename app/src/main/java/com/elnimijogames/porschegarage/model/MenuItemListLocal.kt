@@ -1,6 +1,11 @@
 package com.elnimijogames.porschegarage.model
 
-class MenuItemListLocal: MenuItemListInterface {
+import javax.inject.Inject
+import javax.inject.Singleton
+
+@Singleton
+//class MenuItemListLocal: MenuItemListInterface {
+class MenuItemListLocal @Inject constructor() {
     val menuItemList = arrayListOf(
         MenuItem(
             imagePath = "file:///android_asset/images/menu/summary.png",
@@ -36,7 +41,8 @@ class MenuItemListLocal: MenuItemListInterface {
         )
     )
 
-    override fun getMenuItemsList(): List<MenuItem> {
+    //override fun getMenuItemsList(): List<MenuItem> {
+    fun getMenuItemsList(): List<MenuItem> {
         return menuItemList
     }
 }

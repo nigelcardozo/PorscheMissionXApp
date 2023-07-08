@@ -1,17 +1,12 @@
 package com.elnimijogames.porschegarage.model
 
-class MenuItemRepository(private val dataSource: MenuItemListInterface) {
+import javax.inject.Inject
+import javax.inject.Singleton
+
+@Singleton
+//class MenuItemRepository(private val dataSource: MenuItemListInterface) {
+class MenuItemRepository @Inject constructor(val dataSource: MenuItemListLocal) {
     fun getMenuItemsList(): List<MenuItem> {
         return dataSource.getMenuItemsList()
     }
-
-    // This is temporary until we have DI in place
-//    companion object {
-//        @Volatile
-//        private var instance: MenuItemRepository? = null
-//
-//        fun getInstance() = instance?: synchronized(this) {
-//            instance ?: MenuItemRepository().also { instance = it }
-//        }
-//    }
 }

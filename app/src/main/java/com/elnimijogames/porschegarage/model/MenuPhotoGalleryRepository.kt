@@ -33,14 +33,4 @@ class MenuPhotoGalleryRepository {
     fun getImageGalleryList(): List<String> {
         return imageGalleryPorscheCar
     }
-
-    // This is temporary until we have DI in place
-    companion object {
-        @Volatile
-        private var instance: MenuPhotoGalleryRepository? = null
-
-        fun getInstance() = instance?: synchronized(this) {
-            instance ?: MenuPhotoGalleryRepository().also { instance = it }
-        }
-    }
 }
