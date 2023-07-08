@@ -1,5 +1,6 @@
 package com.elnimijogames.porschegarage.di
 
+import com.elnimijogames.porschegarage.model.MenuItemListInterface
 import com.elnimijogames.porschegarage.model.MenuItemListLocal
 import com.elnimijogames.porschegarage.model.MenuItemRepository
 import com.elnimijogames.porschegarage.model.MenuPhotoGalleryRepository
@@ -12,17 +13,14 @@ import dagger.hilt.android.components.ViewModelComponent
 @InstallIn(ViewModelComponent::class)
 class AppModule {
     @Provides
-    fun providesMenuPhotoGalleryRepository(): MenuPhotoGalleryRepository {
-        return MenuPhotoGalleryRepository()
-    }
+    fun providesMenuPhotoGalleryRepository(): MenuPhotoGalleryRepository = MenuPhotoGalleryRepository()
 
     @Provides
-    fun providesMenuItemListLocal(): MenuItemListLocal {
-        return MenuItemListLocal()
-    }
+    fun providesMenuItemListInterface(): MenuItemListInterface = MenuItemListLocal()
 
     @Provides
-    fun providesMenuItemRepository(menuItemListLocal: MenuItemListLocal): MenuItemRepository {
-        return MenuItemRepository(menuItemListLocal)
-    }
+    fun providesMenuItemListLocal(): MenuItemListLocal = MenuItemListLocal()
+
+    @Provides
+    fun providesMenuItemRepository(menuItemListLocal: MenuItemListLocal): MenuItemRepository = MenuItemRepository(menuItemListLocal)
 }
