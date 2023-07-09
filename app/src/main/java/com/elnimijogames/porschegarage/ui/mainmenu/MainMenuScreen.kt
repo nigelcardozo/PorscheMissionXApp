@@ -12,6 +12,7 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -67,11 +68,6 @@ fun VerticalGridButtons(menuItems: List<MenuItem>) {
         contentPadding = PaddingValues(8.dp)
     ) {
         items(menuItems) { menuItem ->
-//            TextButton(onClick = { /*TODO*/ },
-//            ) {
-//                MenuCard(buttonImage)
-//            }
-            //MenuCard(model = menuIcon)
             MenuItem(menuItem)
         }
     }
@@ -82,14 +78,12 @@ fun GalleryCard(model: String) {
     Card(modifier = Modifier
         .padding(start = 0.dp, top = 10.dp, end = 10.dp, bottom = 10.dp)
         .fillMaxSize(),
-        //.wrapContentHeight(align = Alignment.Top),
-        //.clickable { clickAction.invoke() },
         elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
         shape = RoundedCornerShape(8.dp)
     ) {
         AsyncImage(
             model = model,
-            contentDescription = "Porsche Logo",
+            contentDescription = "Porsche Gallery Image",
             contentScale = ContentScale.FillBounds,
             modifier = Modifier
                 .size(150.dp)
@@ -100,14 +94,14 @@ fun GalleryCard(model: String) {
 
 @Composable
 fun MenuItem(menuItem: MenuItem) {
-    Column(Modifier
-        .padding(10.dp)
-        .background(Color.White.copy(alpha = 0.2f)),) {
+    Column(
+        Modifier
+            .padding(10.dp)
+            .background(Color.White.copy(alpha = 0.2f)),) {
         AsyncImage(
             model = menuItem.imagePath,
-            contentDescription = "Porsche Logo",
+            contentDescription = "Menu Icon",
             modifier = Modifier
-                //.background(MainMenuMenuCardBackgroundColor.copy(alpha = 0.4f))
                 .size(100.dp)
                 .padding(top = 10.dp)
                 .align(CenterHorizontally)
