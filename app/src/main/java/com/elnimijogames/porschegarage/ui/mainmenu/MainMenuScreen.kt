@@ -1,6 +1,7 @@
 package com.elnimijogames.porschegarage.ui.mainmenu
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,7 +13,6 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -48,7 +48,7 @@ fun MainMenuScreen(imageGalleryPaths: List<String>, menuItemList: List<MenuItem>
             )
     ) {
         HorizontalImageGallery(assetPaths = imageGalleryPaths)
-        VerticalGridButtons(menuItems = menuItemList)
+        VerticalGridButtons(menuItems = menuItemList, navigationCallback)
     }
 }
 
@@ -62,13 +62,13 @@ fun HorizontalImageGallery(assetPaths: List<String>) {
 }
 
 @Composable
-fun VerticalGridButtons(menuItems: List<MenuItem>) {
+fun VerticalGridButtons(menuItems: List<MenuItem>, navigationCallback: (String) -> Unit) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
         contentPadding = PaddingValues(8.dp)
     ) {
         items(menuItems) { menuItem ->
-            MenuItem(menuItem)
+            MenuItemTile(menuItem, navigationCallback)
         }
     }
 }
@@ -93,7 +93,7 @@ fun GalleryCard(model: String) {
 }
 
 @Composable
-fun MenuItem(menuItem: MenuItem) {
+fun MenuItemTile(menuItem: MenuItem, navigationCallback:(String) -> Unit) {
     Column(
         Modifier
             .padding(10.dp)
@@ -106,6 +106,10 @@ fun MenuItem(menuItem: MenuItem) {
                 .padding(top = 10.dp)
                 .align(CenterHorizontally)
                 .alpha(0.7f)
+                .clickable ( onClick = {
+                    navigationCallback(menuItem.menuName)
+                }
+            )
         )
 
         Text(modifier = Modifier
@@ -116,43 +120,6 @@ fun MenuItem(menuItem: MenuItem) {
         )
     }
 }
-
-//@Composable
-//fun MenuCard(model: String) {
-//    Card(modifier = Modifier
-//        .padding(start = 0.dp, top = 5.dp, end = 0.dp, bottom = 5.dp)
-//        .wrapContentWidth(align = Alignment.CenterHorizontally)
-//        .wrapContentHeight(align = Alignment.CenterVertically),
-//        //.clickable { clickAction.invoke() },
-//        elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
-//    ) {
-//        AsyncImage(
-//            model = model,
-//            contentDescription = "Porsche Logo",
-//            modifier = Modifier
-//                //.background(MainMenuMenuCardBackgroundColor.copy(alpha = 0.4f))
-//                .width(180.dp)
-//                .height(180.dp)
-//                .alpha(0.7f)
-//        )
-//
-//        Spacer(Modifier.height(10.dp))
-//
-//        Text(modifier = Modifier
-//            .align(CenterHorizontally)
-//            .padding(bottom = 10.dp),
-//            text ="Hello",
-//            style = TextStyle(
-//                fontStyle = MaterialTheme.typography.displayLarge.fontStyle,
-//                fontFamily = MaterialTheme.typography.displayLarge.fontFamily,
-//                fontWeight = MaterialTheme.typography.displayLarge.fontWeight,
-//                fontSize = 24.sp,
-//                lineHeight = MaterialTheme.typography.displayLarge.lineHeight,
-//                letterSpacing = MaterialTheme.typography.displayLarge.letterSpacing,
-//            )
-//        )
-//    }
-//}
 
 @Preview(showBackground = true)
 @Composable
