@@ -30,7 +30,7 @@ class MainMenuViewModelTest {
     fun testMainMenuViewModel() {
         // Prepare mock data
         val galleryList = listOf("image1.jpg", "image2.jpg")
-        val menuList = listOf(MenuItem("file://some/file/name1.jpg", "1"), MenuItem("file://some/file/name2.jpg", "2"))
+        val menuList = listOf(MenuItem("file://some/file/name1.jpg", "1", "MENU_ITEM_1"), MenuItem("file://some/file/name2.jpg", "2", "MENU_ITEM_2"))
 
         // Mock repository methods
         every { galleryRepository.getImageGalleryList() } returns galleryList

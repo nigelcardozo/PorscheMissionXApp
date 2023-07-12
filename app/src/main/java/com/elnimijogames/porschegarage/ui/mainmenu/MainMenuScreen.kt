@@ -35,7 +35,7 @@ import com.elnimijogames.porschegarage.ui.theme.MainMenuScreenBackgroundColorGra
 import com.elnimijogames.porschegarage.ui.theme.PorscheGarageTheme
 
 @Composable
-fun MainMenuScreen(imageGalleryPaths: List<String>, menuItemList: List<MenuItem>) {
+fun MainMenuScreen(imageGalleryPaths: List<String>, menuItemList: List<MenuItem>, navigationCallback: (String) -> Unit) {
     Column(
         modifier = Modifier
             .background(
@@ -158,6 +158,6 @@ fun MenuItem(menuItem: MenuItem) {
 @Composable
 fun GreetingPreview() {
     PorscheGarageTheme {
-        MainMenuScreen(listOf(), MenuItemListLocal().menuItemList)
+        MainMenuScreen(listOf(), MenuItemListLocal().menuItemList, {})
     }
 }

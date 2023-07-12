@@ -25,9 +25,9 @@ class MenuItemRepositoryTest {
     @Test
     fun getMenuItemsList_returnsExpectedList() {
         val expectedList = listOf(
-            MenuItem("file://some/path/item1.jpg", "Menu Item 1"),
-            MenuItem("file://some/path/item2.jpg", "Menu Item 2"),
-            MenuItem("file://some/path/item3.jpg", "Menu Item 3")
+            MenuItem("file://some/path/item1.jpg", "Menu Item 1", "MENU_ITEM_1"),
+            MenuItem("file://some/path/item2.jpg", "Menu Item 2", "MENU_ITEM_2"),
+            MenuItem("file://some/path/item3.jpg", "Menu Item 3", "MENU_ITEM_3")
         )
 
         `when`(dataSource.getMenuItemsList()).thenReturn(expectedList)
@@ -40,9 +40,9 @@ class MenuItemRepositoryTest {
     @Test
     fun getMenuItemsList_callsDataSourceMethod() {
         val expectedList = listOf(
-            MenuItem("file://some/path/item1.jpg", "Menu Item 1"),
-            MenuItem("file://some/path/item2.jpg", "Menu Item 2"),
-            MenuItem("file://some/path/item3.jpg", "Menu Item 3")
+            MenuItem("file://some/path/item1.jpg", "Menu Item 1","MENU_ITEM_1"),
+            MenuItem("file://some/path/item2.jpg", "Menu Item 2","MENU_ITEM_2"),
+            MenuItem("file://some/path/item3.jpg", "Menu Item 3","MENU_ITEM_3")
         )
 
         `when`(dataSource.getMenuItemsList()).thenReturn(expectedList)
