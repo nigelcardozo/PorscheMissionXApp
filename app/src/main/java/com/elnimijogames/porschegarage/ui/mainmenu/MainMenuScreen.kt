@@ -33,6 +33,7 @@ import com.elnimijogames.porschegarage.model.MenuItemListLocal
 import com.elnimijogames.porschegarage.ui.theme.MainMenuScreenBackgroundColorGradientEnd
 import com.elnimijogames.porschegarage.ui.theme.MainMenuScreenBackgroundColorGradientStart
 import com.elnimijogames.porschegarage.ui.theme.PorscheGarageTheme
+import timber.log.Timber
 
 @Composable
 fun MainMenuScreen(imageGalleryPaths: List<String>, menuItemList: List<MenuItem>, navigationCallback: (String) -> Unit) {
@@ -107,7 +108,8 @@ fun MenuItemTile(menuItem: MenuItem, navigationCallback:(String) -> Unit) {
                 .align(CenterHorizontally)
                 .alpha(0.7f)
                 .clickable ( onClick = {
-                    navigationCallback(menuItem.menuName)
+                    Timber.d("menuItem clicked == " + menuItem.menuId)
+                    navigationCallback(menuItem.menuId)
                 }
             )
         )

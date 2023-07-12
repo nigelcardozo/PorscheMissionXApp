@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -17,6 +18,7 @@ import com.elnimijogames.porschegarage.ui.mainmenu.MainMenuViewModel
 import com.elnimijogames.porschegarage.ui.splashscreen.SplashScreen
 import com.elnimijogames.porschegarage.ui.theme.PorscheGarageTheme
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -51,13 +53,14 @@ private fun PorscheGarageApp() {
             }
         }
         composable(
-            route = "details_screen/{menu_id}",
-            arguments = listOf (navArgument("menu_id") {
+            route = "details_screen/{menuId}",
+            arguments = listOf (navArgument("menuId") {
                 type = NavType.StringType
             })
         ) {
             val viewModel: DetailsScreenViewModel = hiltViewModel()
-            DetailsScreen()
+            Timber.d("detailsText v1 == " + viewModel.detailsText.value)
+            DetailsScreen(viewModel.detailsImagePath.value, viewModel.detailsText.value)
         }
     }
 }
