@@ -12,6 +12,8 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.elnimijogames.porschegarage.ui.detailsscreen.DetailsScreen
 import com.elnimijogames.porschegarage.ui.detailsscreen.DetailsScreenViewModel
+import com.elnimijogames.porschegarage.ui.galleryscreen.GalleryScreen
+import com.elnimijogames.porschegarage.ui.galleryscreen.GalleryScreenViewModel
 import com.elnimijogames.porschegarage.ui.mainmenu.MainMenuScreen
 import com.elnimijogames.porschegarage.ui.mainmenu.MainMenuViewModel
 import com.elnimijogames.porschegarage.ui.splashscreen.SplashScreen
@@ -47,9 +49,13 @@ private fun PorscheGarageApp() {
             val viewModel: MainMenuViewModel = hiltViewModel()
             MainMenuScreen(
                 viewModel.photoGalleryState.value,
-                viewModel.itemMenuState.value) { menuId ->
-                navController.navigate("details_screen/$menuId")
-            }
+                viewModel.itemMenuState.value,
+                { menuId ->
+                    navController.navigate("details_screen/$menuId")
+                },
+                { galleryPath ->
+                    navController.navigate("gallery_screen/$galleryPath")
+                })
         }
         composable(
             route = "details_screen/{menuId}",
@@ -58,8 +64,18 @@ private fun PorscheGarageApp() {
             })
         ) {
             val viewModel: DetailsScreenViewModel = hiltViewModel()
-            Timber.d("detailsText v1 == " + viewModel.detailsText.value)
             DetailsScreen(viewModel.detailsTitle.value, viewModel.detailsImagePath.value, viewModel.detailsText.value)
+        }
+        composable(
+            route = "gallery_screen/{galleryPath}",
+            arguments = listOf (navArgument("galleryPath") {
+                type = NavType.StringType
+            })
+        ) {
+            val viewModel: GalleryScreenViewModel = hiltViewModel()
+            GalleryScreen(viewModel.detailsImagePath.value, navigateUpCallback = {
+                navController.popBackStack()
+            })
         }
     }
 }

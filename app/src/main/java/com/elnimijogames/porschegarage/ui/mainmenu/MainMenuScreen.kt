@@ -1,5 +1,6 @@
 package com.elnimijogames.porschegarage.ui.mainmenu
 
+import android.net.Uri
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -36,7 +37,12 @@ import com.elnimijogames.porschegarage.ui.theme.PorscheGarageTheme
 import timber.log.Timber
 
 @Composable
-fun MainMenuScreen(imageGalleryPaths: List<String>, menuItemList: List<MenuItem>, navigationCallback: (String) -> Unit) {
+fun MainMenuScreen(
+    imageGalleryPaths: List<String>,
+    menuItemList: List<MenuItem>,
+    navigationDetailsCallback: (String) -> Unit,
+    navigationGalleryCallback: (String) -> Unit)
+{
     Column(
         modifier = Modifier
             .background(
@@ -48,16 +54,16 @@ fun MainMenuScreen(imageGalleryPaths: List<String>, menuItemList: List<MenuItem>
                 )
             )
     ) {
-        HorizontalImageGallery(assetPaths = imageGalleryPaths)
-        VerticalGridButtons(menuItems = menuItemList, navigationCallback)
+        HorizontalImageGallery(assetPaths = imageGalleryPaths, navigationGalleryCallback)
+        VerticalGridButtons(menuItems = menuItemList, navigationDetailsCallback)
     }
 }
 
 @Composable
-fun HorizontalImageGallery(assetPaths: List<String>) {
+fun HorizontalImageGallery(assetPaths: List<String>, navigationGalleryCallback: (String) -> Unit) {
     LazyRow(modifier = Modifier.height(160.dp)) {
         items(assetPaths) { assetPath ->
-            GalleryCard(assetPath)
+            GalleryCard(assetPath, navigationGalleryCallback)
         }
     }
 }
@@ -75,7 +81,7 @@ fun VerticalGridButtons(menuItems: List<MenuItem>, navigationCallback: (String) 
 }
 
 @Composable
-fun GalleryCard(model: String) {
+fun GalleryCard(model: String, navigationGalleryCallback: (String) -> Unit) {
     Card(modifier = Modifier
         .padding(start = 0.dp, top = 10.dp, end = 10.dp, bottom = 10.dp)
         .fillMaxSize(),
@@ -89,6 +95,11 @@ fun GalleryCard(model: String) {
             modifier = Modifier
                 .size(150.dp)
                 .padding(4.dp)
+                .clickable ( onClick = {
+                    Timber.d("Path == $model")
+                    navigationGalleryCallback(Uri.encode(model))
+                }
+            )
         )
     }
 }
@@ -127,6 +138,6 @@ fun MenuItemTile(menuItem: MenuItem, navigationCallback:(String) -> Unit) {
 @Composable
 fun GreetingPreview() {
     PorscheGarageTheme {
-        MainMenuScreen(listOf(), MenuItemListLocal().menuItemList, {})
+        MainMenuScreen(listOf(), MenuItemListLocal().menuItemList, {}, {})
     }
 }
