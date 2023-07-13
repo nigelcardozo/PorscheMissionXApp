@@ -43,10 +43,38 @@ class DetailsScreenViewModel @Inject constructor(private val savedStateHandle: S
 //                "Driver-orientated displays." + "Clear focus: centre screen, curved display and digital wing mirrors are all set up with the driver in mind. In addition, all essential controls are located on the driver’s axle. Also integrated into the Mission X: a Track Mode view, which clearly displays all key performance data." +
 //                "Shared Emotions" + "A touch of a button on the multi-purpose controller is all it takes: six cameras bring the track experience to life and for all to see. Three exterior and three interior cameras capture the track, driver and passenger. A highlight video is then created automatically, which can be shared directly on social media."
 //        } else if (MenuId.MENU_ID_EXTERIOR == menuId) {
-        if (MenuId.MENU_ID_EXTERIOR == menuId) {
+        if (MenuId.MENU_ID_SUMMARY == menuId) {
+            detailsTitle.value = getSummaryTitle()
+            detailsImagePath.value = getSummaryImagePath()
+            detailsText.value = getSummaryTextDetails()
+        } else if (MenuId.MENU_ID_HIGHLIGHTS == menuId) {
+            detailsTitle.value = getHighlightsTitle()
+            detailsImagePath.value = getHighlightsImagePath()
+            detailsText.value = getHighlightsTextDetails()
+        } else if (MenuId.MENU_ID_INTERIOR == menuId) {
+            detailsTitle.value = getInteriorTitle()
+            detailsImagePath.value = getInteriorImagePath()
+            detailsText.value = getInteriorTextDetails()
+        } else if (MenuId.MENU_ID_EXTERIOR == menuId) {
             detailsTitle.value = getExteriorTitle()
             detailsImagePath.value = getExteriorImagePath()
-            detailsText.value = getExteriorTextAnnotatedString()
+            detailsText.value = getExteriorTextDetails()
+        } else if (MenuId.MENU_ID_EXPERIENCE == menuId) {
+            detailsTitle.value = getExperienceTitle()
+            detailsImagePath.value = getExperienceImagePath()
+            detailsText.value = getExperienceTextDetails()
+        } else if (MenuId.MENU_ID_TECHNOLOGY == menuId) {
+            detailsTitle.value = getTechnologyTitle()
+            detailsImagePath.value = getTechnologyImagePath()
+            detailsText.value = getTechnologyTextDetails()
+        } else if (MenuId.MENU_ID_VIDEOS == menuId) {
+            detailsTitle.value = getVideosTitle()
+            detailsImagePath.value = getVideosImagePath()
+            detailsText.value = getVideosTextDetails()
+        } else if (MenuId.MENU_ID_ABOUT == menuId) {
+            detailsTitle.value = getAboutTitle()
+            detailsImagePath.value = getAboutImagePath()
+            detailsText.value = getAboutTextDetails()
         }
         else {
             Timber.d("detailsText not set")
@@ -54,15 +82,283 @@ class DetailsScreenViewModel @Inject constructor(private val savedStateHandle: S
     }
 }
 
+private fun getSummaryTitle(): String {
+    return "Summary"
+}
+
+private fun getSummaryImagePath(): String {
+    return "file:///android_asset/images/cars/porsche13.jpg"
+}
+
+private fun getSummaryTextDetails(): AnnotatedString {
+    val annotatedString = buildAnnotatedString {
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Bold
+            )
+        ) {
+            append("The Perfect Seat.")
+        }
+        appendLine()
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Normal
+            )
+        ) {
+            append("Adapted to the driver via scans and integrated into the monocoque: the CFRP seat shells with custom upholstery, the six-point seat belt and the integrated LED light strip. The driver’s seat in Kalahari Grey also clearly stands out from the passenger seat in the contrasting colour of Andaluz Brown. An asymmetrical design that deliberately puts the driver at the heart of things.")
+        }
+        appendLine()
+        appendLine()
+
+
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Bold
+            )
+        ) {
+            append("Performance Made to Measure.")
+        }
+        appendLine()
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Normal
+            )
+        ) {
+            append("Optimum ergonomics for rapid lap times: the leather pads on the seats of the Mission X are individually adapted for the driver. If desired, the top pad can be removed when driving with a helmet. The pedals can also be adjusted if necessary. A scale in the footwell area ensures optimum interaction.")
+        }
+        appendLine()
+        appendLine()
+
+
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Bold
+            )
+        ) {
+            append("Driver-orientated displays.")
+        }
+        appendLine()
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Normal
+            )
+        ) {
+            append("Clear focus: centre screen, curved display and digital wing mirrors are all set up with the driver in mind. In addition, all essential controls are located on the driver’s axle. Also integrated into the Mission X: a Track Mode view, which clearly displays all key performance data.")
+        }
+        appendLine()
+        appendLine()
+
+
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Bold
+            )
+        ) {
+            append("Shared Emotions.")
+        }
+        appendLine()
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Normal
+            )
+        ) {
+            append("A touch of a button on the multi-purpose controller is all it takes: six cameras bring the track experience to life and for all to see. Three exterior and three interior cameras capture the track, driver and passenger. A highlight video is then created automatically, which can be shared directly on social media.")
+        }
+        appendLine()
+        appendLine()
+    }
+
+    return annotatedString
+}
+
+private fun getHighlightsTitle(): String {
+    return "Highlights"
+}
+
+private fun getHighlightsImagePath(): String {
+    return "file:///android_asset/images/cars/porsche11.jpg"
+}
+
+private fun getHighlightsTextDetails(): AnnotatedString {
+    val annotatedString = buildAnnotatedString {
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Bold
+            )
+        ) {
+            append("The Perfect Seat.")
+        }
+        appendLine()
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Normal
+            )
+        ) {
+            append("Adapted to the driver via scans and integrated into the monocoque: the CFRP seat shells with custom upholstery, the six-point seat belt and the integrated LED light strip. The driver’s seat in Kalahari Grey also clearly stands out from the passenger seat in the contrasting colour of Andaluz Brown. An asymmetrical design that deliberately puts the driver at the heart of things.")
+        }
+        appendLine()
+        appendLine()
+
+
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Bold
+            )
+        ) {
+            append("Performance Made to Measure.")
+        }
+        appendLine()
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Normal
+            )
+        ) {
+            append("Optimum ergonomics for rapid lap times: the leather pads on the seats of the Mission X are individually adapted for the driver. If desired, the top pad can be removed when driving with a helmet. The pedals can also be adjusted if necessary. A scale in the footwell area ensures optimum interaction.")
+        }
+        appendLine()
+        appendLine()
+
+
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Bold
+            )
+        ) {
+            append("Driver-orientated displays.")
+        }
+        appendLine()
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Normal
+            )
+        ) {
+            append("Clear focus: centre screen, curved display and digital wing mirrors are all set up with the driver in mind. In addition, all essential controls are located on the driver’s axle. Also integrated into the Mission X: a Track Mode view, which clearly displays all key performance data.")
+        }
+        appendLine()
+        appendLine()
+
+
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Bold
+            )
+        ) {
+            append("Shared Emotions.")
+        }
+        appendLine()
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Normal
+            )
+        ) {
+            append("A touch of a button on the multi-purpose controller is all it takes: six cameras bring the track experience to life and for all to see. Three exterior and three interior cameras capture the track, driver and passenger. A highlight video is then created automatically, which can be shared directly on social media.")
+        }
+        appendLine()
+        appendLine()
+    }
+
+    return annotatedString
+}
+
+
+private fun getInteriorTitle(): String {
+    return "Interior"
+}
+
+private fun getInteriorImagePath(): String {
+    return "file:///android_asset/images/cars/porsche18.jpg"
+}
+
+private fun getInteriorTextDetails(): AnnotatedString {
+    val annotatedString = buildAnnotatedString {
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Bold
+            )
+        ) {
+            append("The Perfect Seat.")
+        }
+        appendLine()
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Normal
+            )
+        ) {
+            append("Adapted to the driver via scans and integrated into the monocoque: the CFRP seat shells with custom upholstery, the six-point seat belt and the integrated LED light strip. The driver’s seat in Kalahari Grey also clearly stands out from the passenger seat in the contrasting colour of Andaluz Brown. An asymmetrical design that deliberately puts the driver at the heart of things.")
+        }
+        appendLine()
+        appendLine()
+
+        
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Bold
+            )
+        ) {
+            append("Performance Made to Measure.")
+        }
+        appendLine()
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Normal
+            )
+        ) {
+            append("Optimum ergonomics for rapid lap times: the leather pads on the seats of the Mission X are individually adapted for the driver. If desired, the top pad can be removed when driving with a helmet. The pedals can also be adjusted if necessary. A scale in the footwell area ensures optimum interaction.")
+        }
+        appendLine()
+        appendLine()
+
+
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Bold
+            )
+        ) {
+            append("Driver-orientated displays.")
+        }
+        appendLine()
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Normal
+            )
+        ) {
+            append("Clear focus: centre screen, curved display and digital wing mirrors are all set up with the driver in mind. In addition, all essential controls are located on the driver’s axle. Also integrated into the Mission X: a Track Mode view, which clearly displays all key performance data.")
+        }
+        appendLine()
+        appendLine()
+
+
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Bold
+            )
+        ) {
+            append("Shared Emotions.")
+        }
+        appendLine()
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Normal
+            )
+        ) {
+            append("A touch of a button on the multi-purpose controller is all it takes: six cameras bring the track experience to life and for all to see. Three exterior and three interior cameras capture the track, driver and passenger. A highlight video is then created automatically, which can be shared directly on social media.")
+        }
+        appendLine()
+        appendLine()
+    }
+    
+    return annotatedString
+}
+
 private fun getExteriorTitle(): String {
     return "Exterior"
 }
 
 private fun getExteriorImagePath(): String {
-    return "file:///android_asset/images/cars/porsche18.jpg"
+    return "file:///android_asset/images/cars/porsche24.jpg"
 }
 
-private fun getExteriorTextAnnotatedString(): AnnotatedString {
+private fun getExteriorTextDetails(): AnnotatedString {
     val annotatedString = buildAnnotatedString {
         withStyle(
             style = SpanStyle(
@@ -137,5 +433,57 @@ private fun getExteriorTextAnnotatedString(): AnnotatedString {
         appendLine()
     }
 
+    return annotatedString
+}
+
+private fun getExperienceTitle(): String {
+    return "Experience"
+}
+
+private fun getExperienceImagePath(): String {
+    return "file:///android_asset/images/cars/porsche9.jpg"
+}
+
+private fun getExperienceTextDetails(): AnnotatedString {
+    val annotatedString = buildAnnotatedString {}
+    return annotatedString
+}
+
+private fun getTechnologyTitle(): String {
+    return "Technology"
+}
+
+private fun getTechnologyImagePath(): String {
+    return "file:///android_asset/images/cars/porsche22.jpg"
+}
+
+private fun getTechnologyTextDetails(): AnnotatedString {
+    val annotatedString = buildAnnotatedString {}
+    return annotatedString
+}
+
+private fun getVideosTitle(): String {
+    return "Videos"
+}
+
+private fun getVideosImagePath(): String {
+    return "file:///android_asset/images/cars/porsche7.jpg"
+}
+
+private fun getVideosTextDetails(): AnnotatedString {
+    val annotatedString = buildAnnotatedString {}
+    return annotatedString
+}
+
+private fun getAboutTitle(): String {
+    return "About"
+}
+
+private fun getAboutImagePath(): String {
+    return "file:///android_asset/images/cars/porsche16.jpg"
+}
+
+private fun getAboutTextDetails(): AnnotatedString {
+    val annotatedString = buildAnnotatedString {}
     return annotatedString
 }
