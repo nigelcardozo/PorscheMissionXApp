@@ -8,8 +8,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.elnimijogames.porschegarage.R
 
-val Orbitron = FontFamily(
-    Font(R.font.orbitron)
+val KanitSemiBold = FontFamily(
+    Font(R.font.kanit_semi_bold)
+)
+
+val KanitExtraLight = FontFamily(
+    Font(R.font.kanit_extra_light)
 )
 
 // Set of Material typography styles to start with
@@ -22,11 +26,14 @@ val Typography = Typography(
         letterSpacing = 0.5.sp
     ),
     displayLarge = TextStyle(
-        fontFamily = Orbitron,
+        fontFamily = KanitSemiBold,
         fontWeight = FontWeight.Bold,
-        fontSize = 32.sp,
-        lineHeight = 24.sp,
-        letterSpacing = 0.5.sp
+        fontSize = 36.sp
+    ),
+    bodyMedium = TextStyle(
+        fontFamily = KanitExtraLight,
+        fontWeight = FontWeight.Normal,
+        fontSize = 21.sp
     )
     /* Other default text styles to override
     titleLarge = TextStyle(

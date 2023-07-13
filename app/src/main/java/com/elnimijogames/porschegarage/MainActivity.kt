@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -60,7 +59,7 @@ private fun PorscheGarageApp() {
         ) {
             val viewModel: DetailsScreenViewModel = hiltViewModel()
             Timber.d("detailsText v1 == " + viewModel.detailsText.value)
-            DetailsScreen(viewModel.detailsImagePath.value, viewModel.detailsText.value)
+            DetailsScreen(viewModel.detailsTitle.value, viewModel.detailsImagePath.value, viewModel.detailsText.value)
         }
     }
 }
