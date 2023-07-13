@@ -34,7 +34,6 @@ fun DetailsScreen(detailsTitle: String, detailsImagePath: String, detailsText: A
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 10.dp)
-                    //.align(Alignment.CenterHorizontally)
                     .alpha(0.9f)
                     .graphicsLayer {
                         scrolledY += lazyListState.firstVisibleItemScrollOffset - previousOffset

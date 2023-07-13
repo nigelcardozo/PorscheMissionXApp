@@ -44,95 +44,98 @@ class DetailsScreenViewModel @Inject constructor(private val savedStateHandle: S
 //                "Shared Emotions" + "A touch of a button on the multi-purpose controller is all it takes: six cameras bring the track experience to life and for all to see. Three exterior and three interior cameras capture the track, driver and passenger. A highlight video is then created automatically, which can be shared directly on social media."
 //        } else if (MenuId.MENU_ID_EXTERIOR == menuId) {
         if (MenuId.MENU_ID_EXTERIOR == menuId) {
-            detailsTitle.value = "Exterior"
-            detailsImagePath.value = "file:///android_asset/images/cars/porsche18.jpg"
-//            detailsText.value =
-//                "<B>Carbon and Paintwork in perfect harmony.</B>" + "<BR>" + "‘Rocket Metallic’: this is the body colour of the Mission X, whose brown hue becomes darker depending on the viewing angle. To go with this: carbon surfaces varnished in Rocket Metallic (silky gloss) colour. This ensures a homogeneous transition from the exterior to the interior, underscoring the futuristic, sporty design." +
-//                "<B>Pulsating Charging.</B>" + "<BR>" + "Charging the future: in addition to the front lights, the lighting on the support structure also blinks during charging, along with the letter ‘E’ in the <nobr>Porsche</nobr> Mission X at the rear. In the interior, the LED light strips in the seat shells and the Start/Stop button blink in sync with one another – all in white. A fascinating sight that doesn’t last long – thanks to the new high-voltage battery, the Mission X offers a charging experience like no e-vehicle before it." +
-//                "<B>Le-Mans Style Doors.</B>" + "<BR>" + "Racing drama: the Le-Mans-style doors, which open upwards at the front, are attached to the A-pillar and the roof, and offer convenient access to the vehicle. This door concept was also used in the iconic <nobr>Porsche</nobr> 917. The Mission X also features side windows integrated into the Le-Mans-style doors." +
-//                "<B>Adaptive Wing.</B>" + "<BR>" + "Maximum downforce for emotional thrust: the adaptive, extendable wing beside the support structure of the tail lights ensures optimum downforce. Together with the tuned underbody and targeted airflow, the Mission X generates extreme downforce, well above the level of the 911 GT3 RS."
-
-            val annotatedString = buildAnnotatedString {
-                withStyle(
-                    style = SpanStyle(
-                        fontWeight = FontWeight.Bold
-                    )
-                ) {
-                    append("Carbon and Paintwork in perfect harmony.")
-                }
-                appendLine()
-                withStyle(
-                    style = SpanStyle(
-                        fontWeight = FontWeight.Normal
-                    )
-                ) {
-                    append("‘Rocket Metallic’: this is the body colour of the Mission X, whose brown hue becomes darker depending on the viewing angle. To go with this: carbon surfaces varnished in Rocket Metallic (silky gloss) colour. This ensures a homogeneous transition from the exterior to the interior, underscoring the futuristic, sporty design.")
-                }
-                appendLine()
-                appendLine()
-
-                withStyle(
-                    style = SpanStyle(
-                        fontWeight = FontWeight.Bold
-                    )
-                ) {
-                    append("Pulsating Charging.")
-                }
-                appendLine()
-                withStyle(
-                    style = SpanStyle(
-                        fontWeight = FontWeight.Normal
-                    )
-                ) {
-                    append("Charging the future: in addition to the front lights, the lighting on the support structure also blinks during charging, along with the letter ‘E’ in the Porsche Mission X at the rear. In the interior, the LED light strips in the seat shells and the Start/Stop button blink in sync with one another – all in white. A fascinating sight that doesn’t last long – thanks to the new high-voltage battery, the Mission X offers a charging experience like no e-vehicle before it.")
-                }
-                appendLine()
-                appendLine()
-
-                withStyle(
-                    style = SpanStyle(
-                        fontWeight = FontWeight.Bold
-                    )
-                ) {
-                    append("Le-Mans Style Doors.")
-                }
-                appendLine()
-                withStyle(
-                    style = SpanStyle(
-                        fontWeight = FontWeight.Normal
-                    )
-                ) {
-                    append("Racing drama: the Le-Mans-style doors, which open upwards at the front, are attached to the A-pillar and the roof, and offer convenient access to the vehicle. This door concept was also used in the iconic Porsche 917. The Mission X also features side windows integrated into the Le-Mans-style doors.")
-                }
-                appendLine()
-                appendLine()
-
-
-                withStyle(
-                    style = SpanStyle(
-                        fontWeight = FontWeight.Bold
-                    )
-                ) {
-                    append("Adaptive Wing.")
-                }
-                appendLine()
-                withStyle(
-                    style = SpanStyle(
-                        fontWeight = FontWeight.Normal
-                    )
-                ) {
-                    append("Maximum downforce for emotional thrust: the adaptive, extendable wing beside the support structure of the tail lights ensures optimum downforce. Together with the tuned underbody and targeted airflow, the Mission X generates extreme downforce, well above the level of the 911 GT3 RS.")
-                }
-                appendLine()
-            }
-
-
-
-
-            detailsText.value = annotatedString
+            detailsTitle.value = getExteriorTitle()
+            detailsImagePath.value = getExteriorImagePath()
+            detailsText.value = getExteriorTextAnnotatedString()
         }
         else {
             Timber.d("detailsText not set")
         }
     }
+}
+
+private fun getExteriorTitle(): String {
+    return "Exterior"
+}
+
+private fun getExteriorImagePath(): String {
+    return "file:///android_asset/images/cars/porsche18.jpg"
+}
+
+private fun getExteriorTextAnnotatedString(): AnnotatedString {
+    val annotatedString = buildAnnotatedString {
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Bold
+            )
+        ) {
+            append("Carbon and Paintwork in perfect harmony.")
+        }
+        appendLine()
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Normal
+            )
+        ) {
+            append("‘Rocket Metallic’: this is the body colour of the Mission X, whose brown hue becomes darker depending on the viewing angle. To go with this: carbon surfaces varnished in Rocket Metallic (silky gloss) colour. This ensures a homogeneous transition from the exterior to the interior, underscoring the futuristic, sporty design.")
+        }
+        appendLine()
+        appendLine()
+
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Bold
+            )
+        ) {
+            append("Pulsating Charging.")
+        }
+        appendLine()
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Normal
+            )
+        ) {
+            append("Charging the future: in addition to the front lights, the lighting on the support structure also blinks during charging, along with the letter ‘E’ in the Porsche Mission X at the rear. In the interior, the LED light strips in the seat shells and the Start/Stop button blink in sync with one another – all in white. A fascinating sight that doesn’t last long – thanks to the new high-voltage battery, the Mission X offers a charging experience like no e-vehicle before it.")
+        }
+        appendLine()
+        appendLine()
+
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Bold
+            )
+        ) {
+            append("Le-Mans Style Doors.")
+        }
+        appendLine()
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Normal
+            )
+        ) {
+            append("Racing drama: the Le-Mans-style doors, which open upwards at the front, are attached to the A-pillar and the roof, and offer convenient access to the vehicle. This door concept was also used in the iconic Porsche 917. The Mission X also features side windows integrated into the Le-Mans-style doors.")
+        }
+        appendLine()
+        appendLine()
+
+
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Bold
+            )
+        ) {
+            append("Adaptive Wing.")
+        }
+        appendLine()
+        withStyle(
+            style = SpanStyle(
+                fontWeight = FontWeight.Normal
+            )
+        ) {
+            append("Maximum downforce for emotional thrust: the adaptive, extendable wing beside the support structure of the tail lights ensures optimum downforce. Together with the tuned underbody and targeted airflow, the Mission X generates extreme downforce, well above the level of the 911 GT3 RS.")
+        }
+        appendLine()
+    }
+
+    return annotatedString
 }
