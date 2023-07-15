@@ -1,12 +1,11 @@
 package com.elnimijogames.porschegarage.di
 
 import android.content.Context
-import com.elnimijogames.porschegarage.model.DetailsScreenRepository
+import com.elnimijogames.porschegarage.model.MenuDetailsRepository
 import com.elnimijogames.porschegarage.model.MenuItemListInterface
 import com.elnimijogames.porschegarage.model.MenuItemListLocal
 import com.elnimijogames.porschegarage.model.MenuItemRepository
 import com.elnimijogames.porschegarage.model.MenuPhotoGalleryRepository
-import com.elnimijogames.porschegarage.model.StringResourceProvider
 import com.elnimijogames.porschegarage.model.StringResourceProviderImpl
 import dagger.Module
 import dagger.Provides
@@ -40,8 +39,8 @@ class AppModule {
     }
 
     @Provides
-    fun providesDetailsScreenRepository(@ApplicationContext appContext: Context): DetailsScreenRepository {
+    fun providesDetailsScreenRepository(@ApplicationContext appContext: Context): MenuDetailsRepository {
         val stringResourceProvider = StringResourceProviderImpl(appContext.resources)
-        return DetailsScreenRepository(stringResourceProvider)
+        return MenuDetailsRepository(stringResourceProvider)
     }
 }

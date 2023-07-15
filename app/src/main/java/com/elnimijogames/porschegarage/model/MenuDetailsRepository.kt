@@ -9,7 +9,7 @@ import com.elnimijogames.porschegarage.R
 import timber.log.Timber
 import javax.inject.Inject
 
-class DetailsScreenRepository @Inject constructor(private val stringResourceProvider: StringResourceProvider) {
+class MenuDetailsRepository @Inject constructor(private val stringResourceProvider: StringResourceProvider) {
     fun getDetailsTitle(menuId: String): String {
         when (menuId) {
             MenuId.MENU_ID_SUMMARY -> return stringResourceProvider.getString(R.string.menu_details_title_summary, "")
