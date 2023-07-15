@@ -30,6 +30,11 @@ val Typography = Typography(
         fontWeight = FontWeight.Bold,
         fontSize = 36.sp
     ),
+    displayMedium = TextStyle(
+        fontFamily = KanitSemiBold,
+        fontWeight = FontWeight.Bold,
+        fontSize = 21.sp
+    ),
     bodyMedium = TextStyle(
         fontFamily = KanitExtraLight,
         fontWeight = FontWeight.Normal,
