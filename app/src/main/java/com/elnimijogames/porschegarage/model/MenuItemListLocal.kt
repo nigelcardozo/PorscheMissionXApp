@@ -6,7 +6,7 @@ class MenuItemListLocal @Inject constructor(): MenuItemListInterface {
     val menuItemList = arrayListOf(
         MenuItem(
             imagePath = "file:///android_asset/images/menu_outlines/summary.png",
-            menuName = "Summary",
+            menuName = "BooSummary",
             menuId = MenuId.MENU_ID_SUMMARY
         ),
         MenuItem(

@@ -5,20 +5,21 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
+import com.elnimijogames.porschegarage.R
 import timber.log.Timber
 import javax.inject.Inject
 
-class DetailsScreenRepository @Inject constructor() {
+class DetailsScreenRepository @Inject constructor(private val stringResourceProvider: StringResourceProvider) {
     fun getDetailsTitle(menuId: String): String {
         when (menuId) {
-            MenuId.MENU_ID_SUMMARY -> return "Summary"
-            MenuId.MENU_ID_HIGHLIGHTS -> return "Highlights"
-            MenuId.MENU_ID_INTERIOR -> return "Interior"
-            MenuId.MENU_ID_EXTERIOR -> return "Exterior"
-            MenuId.MENU_ID_EXPERIENCE -> return "Experience"
-            MenuId.MENU_ID_TECHNOLOGY -> return "Technology"
-            MenuId.MENU_ID_VIDEOS -> return "Videos"
-            MenuId.MENU_ID_ABOUT -> return "About"
+            MenuId.MENU_ID_SUMMARY -> return stringResourceProvider.getString(R.string.menu_details_title_summary, "")
+            MenuId.MENU_ID_HIGHLIGHTS -> return stringResourceProvider.getString(R.string.menu_details_title_highlights, "")
+            MenuId.MENU_ID_INTERIOR -> return stringResourceProvider.getString(R.string.menu_details_title_interior, "")
+            MenuId.MENU_ID_EXTERIOR -> return stringResourceProvider.getString(R.string.menu_details_title_exterior, "")
+            MenuId.MENU_ID_EXPERIENCE -> return stringResourceProvider.getString(R.string.menu_details_title_experience, "")
+            MenuId.MENU_ID_TECHNOLOGY -> return stringResourceProvider.getString(R.string.menu_details_title_technology, "")
+            MenuId.MENU_ID_VIDEOS -> return stringResourceProvider.getString(R.string.menu_details_title_videos, "")
+            MenuId.MENU_ID_ABOUT -> return stringResourceProvider.getString(R.string.menu_details_title_about, "")
         }
 
         Timber.d("Illegal menuId value $menuId")

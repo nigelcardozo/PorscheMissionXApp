@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Porsche Garage</string>
+    <string name="menu_details_title_summary">Summary</string>
+    <string name="menu_details_title_highlights">Highlights</string>
+    <string name="menu_details_title_interior">Interior</string>
+    <string name="menu_details_title_exterior">Exterior</string>
+    <string name="menu_details_title_technology">Technology</string>
+    <string name="menu_details_title_experience">Experience</string>
+    <string name="menu_details_title_videos">Videos</string>
+    <string name="menu_details_title_about">About</string>
 </resources>

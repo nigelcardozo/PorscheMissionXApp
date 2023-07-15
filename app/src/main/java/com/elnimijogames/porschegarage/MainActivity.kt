@@ -10,6 +10,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.elnimijogames.porschegarage.model.StringResourceProvider
+import com.elnimijogames.porschegarage.model.StringResourceProviderImpl
 import com.elnimijogames.porschegarage.ui.detailsscreen.DetailsScreen
 import com.elnimijogames.porschegarage.ui.detailsscreen.DetailsScreenViewModel
 import com.elnimijogames.porschegarage.ui.galleryscreen.GalleryScreen
@@ -27,16 +29,18 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        val stringResourceProvider: StringResourceProviderImpl = StringResourceProviderImpl(resources)
+
         setContent {
             PorscheGarageTheme {
-                PorscheGarageApp()
+                PorscheGarageApp(stringResourceProvider)
             }
         }
     }
 }
 
 @Composable
-private fun PorscheGarageApp() {
+private fun PorscheGarageApp(stringResourceProvider: StringResourceProviderImpl) {
     val navController = rememberNavController()
 
     NavHost(navController, startDestination = "splash_screen") {
