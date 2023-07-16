@@ -18,22 +18,6 @@ import timber.log.Timber
 import javax.inject.Inject
 
 class MenuDetailsRepository @Inject constructor(private val stringResourceProvider: StringResourceProvider) {
-    fun getMenuItems(): ArrayList<MenuItem> = arrayListOf(
-        getMenuItem(MENU_ID_SUMMARY),
-        getMenuItem(MENU_ID_HIGHLIGHTS),
-        getMenuItem(MENU_ID_INTERIOR),
-        getMenuItem(MENU_ID_EXTERIOR),
-        getMenuItem(MENU_ID_EXPERIENCE),
-        getMenuItem(MENU_ID_TECHNOLOGY),
-        getMenuItem(MENU_ID_VIDEOS),
-        getMenuItem(MENU_ID_ABOUT)
-    )
-
-    private fun getMenuItem(menuId: String): MenuItem = MenuItem(
-        menuId = menuId,
-        menuName = menuId,
-        imagePath = menuId
-    )
 
     fun getTitle(menuId: String): String {
         when (menuId) {

@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
@@ -27,20 +26,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.elnimijogames.porschegarage.model.MenuItem
-import com.elnimijogames.porschegarage.model.MenuItemListLocal
 import com.elnimijogames.porschegarage.ui.theme.MainMenuScreenBackgroundColorGradientEnd
 import com.elnimijogames.porschegarage.ui.theme.MainMenuScreenBackgroundColorGradientStart
 import com.elnimijogames.porschegarage.ui.theme.MainMenuTileBackgroundColor
 import com.elnimijogames.porschegarage.ui.theme.MainMenuTileBorderColor
-import com.elnimijogames.porschegarage.ui.theme.PorscheGarageTheme
 import timber.log.Timber
 
 
@@ -171,44 +166,5 @@ fun MenuItemTile(menuItem: MenuItem, navigationCallback:(String) -> Unit) {
                 color = Color.White
             )
         }
-    }
-}
-
-//@Composable
-//fun MenuItemTile(menuItem: MenuItem, navigationCallback:(String) -> Unit) {
-//    Column(
-//        Modifier
-//            .padding(10.dp)
-//            .background(Color.White.copy(alpha = 0.2f)),
-//    ) {
-//        AsyncImage(
-//            model = menuItem.imagePath,
-//            contentDescription = "Menu Icon",
-//            modifier = Modifier
-//                .size(100.dp)
-//                .padding(top = 10.dp)
-//                .align(CenterHorizontally)
-//                .alpha(0.7f)
-//                .clickable ( onClick = {
-//                    Timber.d("menuItem clicked == " + menuItem.menuId)
-//                    navigationCallback(menuItem.menuId)
-//                }
-//            )
-//        )
-//
-//        Text(modifier = Modifier
-//            .align(CenterHorizontally)
-//            .padding(bottom = 5.dp),
-//            text = menuItem.menuName,
-//            style = MaterialTheme.typography.headlineLarge
-//        )
-//    }
-//}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    PorscheGarageTheme {
-        MainMenuScreen(listOf(), MenuItemListLocal().menuItemList, {}, {})
     }
 }

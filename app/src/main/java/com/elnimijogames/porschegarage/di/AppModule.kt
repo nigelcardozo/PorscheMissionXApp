@@ -20,10 +20,16 @@ class AppModule {
     fun providesMenuPhotoGalleryRepository(): MenuPhotoGalleryRepository = MenuPhotoGalleryRepository()
 
     @Provides
-    fun providesMenuItemListInterface(): MenuItemListInterface = MenuItemListLocal()
+    fun providesMenuItemListInterface(@ApplicationContext appContext: Context): MenuItemListInterface {
+        val stringResourceProvider = StringResourceProviderImpl(appContext.resources)
+        return MenuItemListLocal(stringResourceProvider)
+    }
 
     @Provides
-    fun providesMenuItemListLocal(): MenuItemListLocal = MenuItemListLocal()
+    fun providesMenuItemListLocal(@ApplicationContext appContext: Context): MenuItemListLocal {
+        val stringResourceProvider = StringResourceProviderImpl(appContext.resources)
+        return MenuItemListLocal(stringResourceProvider)
+    }
 
     @Provides
     fun providesMenuItemRepository(menuItemListLocal: MenuItemListLocal): MenuItemRepository = MenuItemRepository(menuItemListLocal)
