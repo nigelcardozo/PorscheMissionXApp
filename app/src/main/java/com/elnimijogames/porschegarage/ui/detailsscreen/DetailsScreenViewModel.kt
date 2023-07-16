@@ -24,8 +24,8 @@ class DetailsScreenViewModel @Inject constructor(
         val menuId = savedStateHandle.get<String>("menuId")?: ""
         Timber.d("menuId == $menuId")
 
-        detailsTitle.value = menuDetailsRepository.getDetailsTitle(menuId)
-        detailsImagePath.value = menuDetailsRepository.getDetailsImagePath(menuId)
-        detailsText.value = menuDetailsRepository.getDetailsTextDetails(menuId)
+        detailsTitle.value = menuDetailsRepository.getTitle(menuId)
+        detailsImagePath.value = menuDetailsRepository.getImagePath(menuId)
+        detailsText.value = menuDetailsRepository.getDetails(menuId)
     }
 }
